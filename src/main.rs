@@ -1,15 +1,12 @@
-// specify return values with ->
-// -> u16 tells a function to return a 16-bit unsigned integer
-/*fn get_version() -> u16 {
-    1000
-}*/
+fn parse_markdown_file() {}
 
-fn usage() {
-    // Declare and assign variable; variable type is &str (string slice)
-    let the_version: &str = "0.1";
-    println!("mdcompiler is a markdown compiler written by kyrose");
-    println!("Version {}", the_version); // Print value assigned
-}
+// Print a banner with package information
+// Output:
+//      [CARGO_PKG_NAME] (v[CARGO_PKG_VERSION]), [CARGO_PKG_DESCRIPTION]
+//      Written by [CARGO_PKG_AUTHORS]
+//      Usage: bitsymd <somefile.md>
+//
+fn usage() {}
 
 fn main() {
     usage();
