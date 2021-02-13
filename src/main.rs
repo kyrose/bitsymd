@@ -1,10 +1,20 @@
 // MAIN OBJECTIVES //
+//
 // Print a banner with package information
 // Output:
 //  //  [CARGO_PKG_NAME] (v[CARGO_PKG_VERSION]), [CARGO_PKG_DESCRIPTION]
 //  //  Written by [CARGO_PKG_AUTHORS]
 //  //  Homepage: [CARGO_PKG_HOMEPAGE]
 //  //  Usage: bitsymd <somefile.md>
+//
+// Create a program with the following lifecycle:
+// Given a call to bitsymd...
+//   When a markdown file is passed as an argument it will:
+//      1. open the file
+//      2. parse the file line by life into a buffer
+//      3. export the buffer to a new html file
+//   When anything else or no argument is passed it should:
+//      1. show the banner
 
 fn get_title() -> String {
     // Create local String var to hold data we want for our output
