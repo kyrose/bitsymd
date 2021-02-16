@@ -105,6 +105,7 @@ fn main() {
         // If we have two, try to parse
         2 => parse_markdown_file(&args[1]),
         // Any other number of args (command name only, to multiple files), return error
+        // `_` is the default match case. Will trigger if no other match case triggers
         _ => {
             println!("[ ERROR ] Invalid invocation (you done goofed!)");
             usage();
