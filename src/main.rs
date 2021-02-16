@@ -78,14 +78,26 @@ fn print_long_banner() {
 //     );
 // }
 
-fn usage() {}
+fn usage() {
+    print_long_banner();
+}
 
 // Called when markdown file is passed via cli
-fn parse_markdown_file() {
-
+fn parse_markdown_file(_filename: &str) {
+    print_short_banner();
+    println!("[ INFO ] Trying to parse {}...", _filename);
 }
 
 fn main() {
-    print_long_banner();
-    usage();
+
+    let args: Vec<String> = std::env::args().collect();
+
+    match args.len() {
+        2 => parse_markdown_file(&args[1]),
+        _ => {
+            println!("[ ERROR ] Invalid invocation (you done goofed!)");
+            usage();
+        }
+    }
+
 }
