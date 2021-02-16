@@ -90,10 +90,21 @@ fn parse_markdown_file(_filename: &str) {
 
 fn main() {
 
+    // Collect all arguments in a vector
+    // std::env::args() exposes environment variable of type std::env::Args and returns them
+    // .collect() takes the arguments and converts them into an iterable string
+    //  //  std::iter::Iterator<std::string::String>
+    //  // Vectors are derived from this generic Iterator type
+    // Vec<std::string::String> and Vec<String> are the same thing
     let args: Vec<String> = std::env::args().collect();
 
+    // Since we only want to handle invocations of "bitsymd filename" our args vector should
+    // only be of length 2. So we'll use a match function that compares vector length
+    // &args[0] will always be the command name, `bitsymd` in this case
     match args.len() {
+        // If we have two, try to parse
         2 => parse_markdown_file(&args[1]),
+        // Any other number of args (command name only, to multiple files), return error
         _ => {
             println!("[ ERROR ] Invalid invocation (you done goofed!)");
             usage();
